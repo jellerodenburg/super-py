@@ -1,0 +1,10 @@
+/__pycache__
+/cache
+*.zip
+
+# (Mac) OS generated files #
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+*.DS_Store
