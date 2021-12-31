@@ -1,5 +1,5 @@
 import csv
-from datetime import date, datetime
+from datetime import datetime
 from model import Product, Sale
 
 
@@ -28,7 +28,7 @@ def get_products_from_bought_csv():
                 row["product_name"],
                 row["buy_date"],
                 row["buy_price"],
-                datetime.strptime(row["expiration_date"], "%Y-%m-%d"),
+                datetime.strptime(row["expiration_date"], "%Y-%m-%d").date(),
             )
             products.append(product)
     return products

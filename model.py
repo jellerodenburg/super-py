@@ -1,3 +1,6 @@
+import json
+
+
 class Product:
     def __init__(self, id, name, buy_date, buy_price, expiration_date):
         self.id = id
@@ -7,8 +10,11 @@ class Product:
         self.expiration_date = expiration_date
 
     def __repr__(self) -> str:
-        return "Product(id: {}, name: {}, buy_date: {}, buy_price: {}, expiration_date: {})".format(
-            self.id, self.name, self.buy_date, self.buy_price, self.expiration_date
+        return (
+            "Product " + str(vars(self))
+            .replace(", '", ",\n '")
+            .replace("{", "{\n ")
+            .replace("}", "\n}\n")
         )
 
 
@@ -20,6 +26,4 @@ class Sale:
         self.sell_price = sell_price
 
     def __repr__(self) -> str:
-        return "Sale(id: {}, bought_id: {}, sell_date: {}, sell_price: {})".format(
-            self.id, self.bought_id, self.sell_date, self.sell_price
-        )
+        return str(vars(self))
