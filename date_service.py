@@ -14,11 +14,11 @@ def get_date_to_use_as_current_date():
 
 
 def set_current_date(date):
-    if is_correct_date(date):
+    if is_valid_date(date):
         with open("resources/current_date.txt", "w") as file:
             file.write(date)
 
-def is_correct_date(date_text):
+def is_valid_date(date_text):
     try:
         datetime.strptime(date_text, "%Y-%m-%d").date()
         return True

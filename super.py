@@ -3,7 +3,7 @@ from datetime import date
 from argparse_service import argparser
 from buy_service import *
 from date_service import *
-from revenue_service import *
+from revenue_report_service import *
 from sell_service import *
 
 # Do not change these lines.
@@ -27,7 +27,7 @@ def main():
     if args.function == "setdate":
         set_current_date(args.current_date)
     if args.function == "revenue":
-        print_revenue_in_euros(args.from_date, args.to_date)
+        generate_revenue_report(args.from_date, args.to_date)
     
 
 

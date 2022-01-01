@@ -19,7 +19,7 @@ def buy_product(product_name, product_price, product_expiration_date):
         prRed("Error: Product price cannot be a negative amount")
         all_args_ok = False
     if all_args_ok:
-        if is_correct_date(product_expiration_date):
+        if is_valid_date(product_expiration_date):
             product_expiration_date = datetime.strptime(product_expiration_date, "%Y-%m-%d").date()
             product_id = get_last_id_from_bought_csv() + 1
             product_data = [
