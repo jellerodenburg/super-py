@@ -1,6 +1,3 @@
-import json
-
-
 class Product:
     def __init__(self, id, name, buy_date, buy_price, expiration_date):
         self.id = id
@@ -14,7 +11,7 @@ class Product:
             "Product " + str(vars(self))
             .replace(", '", ",\n '")
             .replace("{", "{\n ")
-            .replace("}", "\n}\n")
+            .replace("}", "\n}")
         )
 
 
@@ -26,4 +23,9 @@ class Sale:
         self.sell_price = sell_price
 
     def __repr__(self) -> str:
-        return str(vars(self))
+        return (
+            "Sale " + str(vars(self))
+            .replace(", '", ",\n '")
+            .replace("{", "{\n ")
+            .replace("}", "\n}\n")
+        )

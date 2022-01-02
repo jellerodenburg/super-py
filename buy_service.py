@@ -29,7 +29,7 @@ def buy_product(product_name, product_price, product_expiration_date):
                 product_price,
                 product_expiration_date,
             ]
-            write_data_to_new_row_in_bought_csv(product_data)
+            write_data_to_new_row_in_csv_document(product_data, bought_csv)
             added_product = Product(
                 product_id,
                 product_name,

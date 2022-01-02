@@ -2,6 +2,9 @@ import csv
 from datetime import datetime
 from model import Product, Sale
 
+sold_csv = "resources/sold.csv"
+bought_csv = "resources/bought.csv"
+
 
 def get_sales_from_sold_csv():
     sales = []
@@ -26,7 +29,7 @@ def get_products_from_bought_csv():
             product = Product(
                 row["id"],
                 row["product_name"],
-                row["buy_date"],
+                datetime.strptime(row["buy_date"], "%Y-%m-%d").date(),
                 row["buy_price"],
                 datetime.strptime(row["expiration_date"], "%Y-%m-%d").date(),
             )
@@ -34,17 +37,10 @@ def get_products_from_bought_csv():
     return products
 
 
-def write_data_to_new_row_in_bought_csv(product_data):
-    with open("resources/bought.csv", "a", encoding="UTF8") as file:
+def write_data_to_new_row_in_csv_document(data, document_path):
+    with open(document_path, "a", encoding="UTF8") as file:
         writer = csv.writer(file)
-        writer.writerow(product_data)
-        file.close()
-
-
-def write_data_to_new_row_in_sold_csv(product_data):
-    with open("resources/sold.csv", "a", encoding="UTF8") as file:
-        writer = csv.writer(file)
-        writer.writerow(product_data)
+        writer.writerow(data)
         file.close()
 
 
