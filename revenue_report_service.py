@@ -9,8 +9,10 @@ table = Table()
 table.add_column("From\nDate")
 table.add_column("To\nDate")
 table.add_column("Total\nItems\nSold", justify="right")
-table.add_column("Average\nItem Sell\nPrice", justify="right")
-table.add_column("Total\nRevenue", justify="right")
+table.add_column("Average\nItem\nSell Price", justify="right")
+table.add_column("Total\nRevenue\n(Sales)", justify="right")
+table.add_column("Total\nCosts\n(Bought)", justify="right")
+table.add_column("Total\nProfit", justify="right")
 
 
 def generate_revenue_report(from_date, to_date):
@@ -39,16 +41,20 @@ def optional_add_more_date_ranges():
 
 def add_row_to_table(from_date, to_date):
     number_of_products_sold = get_number_of_sold_products(from_date, to_date)
-    total_revenue = get_revenue_in_euros(from_date, to_date)
+    revenue = get_revenue_in_euros(from_date, to_date)
+    costs_of_products = get_costs_of_bought_products(from_date, to_date)
+    profit = revenue - costs_of_products
     average_item_price = 0
     if number_of_products_sold != 0:
-        average_item_price = total_revenue / number_of_products_sold
+        average_item_price = revenue / number_of_products_sold
     table.add_row(
         from_date,
         to_date,
         str(number_of_products_sold),
         format_as_currency(average_item_price),
-        format_as_currency(total_revenue),
+        format_as_currency(revenue),
+        format_as_currency(costs_of_products),
+        format_as_currency(profit),
     )
 
 
