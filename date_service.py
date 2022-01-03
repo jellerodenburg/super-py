@@ -11,7 +11,7 @@ def get_date_to_use_as_current_date():
     if date_as_string == "":
         current_date = date.today()
     else:
-        current_date = datetime.strptime(date_as_string, "%Y-%m-%d").date()
+        current_date = str_to_date(date_as_string)
     return current_date
 
 
@@ -34,3 +34,7 @@ def is_valid_date(date_text):
 
 def str_to_date(str):
     return datetime.strptime(str, "%Y-%m-%d").date()
+
+
+def date_to_str(date):
+    return datetime.strftime(date, "%Y-%m-%d")

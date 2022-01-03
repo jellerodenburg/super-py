@@ -23,9 +23,9 @@ argparser.add_argument(
     action="store",
 )
 argparser.add_argument(
-    "-c",
-    "--current_date",
-    help="specify a date to use as the current date for the program"
+    "-d",
+    "--date",
+    help="specify a date to use with functions: setdate, pull"
     + "(use format YYYY-MM-DD)",
     action="store",
 )
