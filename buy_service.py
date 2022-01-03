@@ -9,6 +9,7 @@ error_console = Console(stderr=True, style="bold red")
 
 current_date = get_date_to_use_as_current_date()
 
+
 def buy_product(product_name, product_price, product_expiration_date):
     all_args_ok = True
     if product_expiration_date == None:
@@ -25,7 +26,9 @@ def buy_product(product_name, product_price, product_expiration_date):
         all_args_ok = False
     if all_args_ok:
         if is_valid_date(product_expiration_date):
-            product_expiration_date = datetime.strptime(product_expiration_date, "%Y-%m-%d").date()
+            product_expiration_date = datetime.strptime(
+                product_expiration_date, "%Y-%m-%d"
+            ).date()
             product_id = get_last_id_from_bought_csv() + 1
             product_data = [
                 product_id,
