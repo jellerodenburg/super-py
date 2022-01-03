@@ -1,6 +1,11 @@
 import csv
 from datetime import datetime
 from model import Product, Sale
+from rich.console import Console
+import sys
+
+console = Console()
+error_console = Console(stderr=True, style="bold red")
 
 sold_csv = "resources/sold.csv"
 bought_csv = "resources/bought.csv"
@@ -14,7 +19,7 @@ def get_sales_from_sold_csv():
             sale = Sale(
                 row["id"],
                 row["bought_id"],
-                row["sell_date"],
+                datetime.strptime(row["sell_date"], "%Y-%m-%d").date(),
                 row["sell_price"],
             )
             sales.append(sale)
@@ -25,15 +30,26 @@ def get_products_from_bought_csv():
     products = []
     with open("resources/bought.csv", "r", encoding="UTF8") as file:
         reader = csv.DictReader(file)
+        count = 0
         for row in reader:
-            product = Product(
-                row["id"],
-                row["product_name"],
-                datetime.strptime(row["buy_date"], "%Y-%m-%d").date(),
-                row["buy_price"],
-                datetime.strptime(row["expiration_date"], "%Y-%m-%d").date(),
-            )
+            count += 1
+            try:
+                product = Product(
+                    row["id"],
+                    row["product_name"],
+                    datetime.strptime(row["buy_date"], "%Y-%m-%d").date(),
+                    row["buy_price"],
+                    datetime.strptime(row["expiration_date"], "%Y-%m-%d").date(),
+                )
+            except:
+                error_console.print(
+                    f"Something seems to be wrong with the bought.csv file on line {count +1}!"
+                )
+                error_console.print("Please check!")
+                sys.exit()
             products.append(product)
+    if count == 0:
+        error_console.print(f"NOTE! No bought products found in bought.csv")
     return products
 
 

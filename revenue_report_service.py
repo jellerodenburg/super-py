@@ -62,10 +62,10 @@ def add_row_to_table(from_date, to_date):
 def both_args_valid(from_date, to_date):
     args_not_none = True
     if from_date == None:
-        prRed("Error: Please specify the from_date for the date range")
+        Console.print("[red]Error: Please specify the from_date for the date range[/red]")
         args_not_none = False
     if to_date == None:
-        prRed("Error: Please specify the to_date for the date range")
+        Console.print("[red]Error: Please specify the to_date for the date range[/red]")
         args_not_none = False
     if args_not_none:
         if is_valid_date(from_date) and is_valid_date(to_date):

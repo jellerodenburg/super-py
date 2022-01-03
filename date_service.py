@@ -1,5 +1,7 @@
 from datetime import date, datetime
-from colorprint_service import prRed, prGreen
+from rich.console import Console
+
+error_console = Console(stderr=True, style="bold red")
 
 
 def get_date_to_use_as_current_date():
@@ -23,5 +25,5 @@ def is_valid_date(date_text):
         datetime.strptime(date_text, "%Y-%m-%d").date()
         return True
     except ValueError:
-        prRed("Error: Please specify a valid date in format YYYY-MM-DD.")
+        error_console.print("Error: Please specify a valid date in format YYYY-MM-DD.")
         return False
