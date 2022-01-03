@@ -11,20 +11,7 @@ current_date = get_date_to_use_as_current_date()
 
 
 def buy_product(product_name, product_price, product_expiration_date):
-    all_args_ok = True
-    if product_expiration_date == None:
-        error_console.print("Error: Please specify the expiration_date for the product")
-        all_args_ok = False
-    if product_name == None:
-        error_console.print("Error: Please specify the name of the product")
-        all_args_ok = False
-    if product_price == None:
-        error_console.print("Error: Please specify a price for the product")
-        all_args_ok = False
-    if product_price < 0:
-        error_console.print("Error: Product price cannot be a negative amount")
-        all_args_ok = False
-    if all_args_ok:
+    if all_args_entered(product_name, product_price, product_expiration_date):
         if is_valid_date(product_expiration_date):
             product_expiration_date = datetime.strptime(
                 product_expiration_date, "%Y-%m-%d"
@@ -47,3 +34,20 @@ def buy_product(product_name, product_price, product_expiration_date):
             )
             print_product_table_format(added_product)
             console.print(f"Item added succesfully to list of bought products.")
+
+
+def all_args_entered(product_name, product_price, product_expiration_date):
+    args_not_none = True
+    if product_expiration_date == None:
+        error_console.print("Error: Please specify the expiration_date for the product")
+        args_not_none = False
+    if product_name == None:
+        error_console.print("Error: Please specify the name of the product")
+        args_not_none = False
+    if product_price == None:
+        error_console.print("Error: Please specify a price for the product")
+        args_not_none = False
+    if product_price < 0:
+        error_console.print("Error: Product price cannot be a negative amount")
+        args_not_none = False
+    return args_not_none

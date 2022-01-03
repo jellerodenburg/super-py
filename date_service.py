@@ -20,6 +20,7 @@ def set_current_date(date):
         with open("resources/current_date.txt", "w") as file:
             file.write(date)
 
+
 def is_valid_date(date_text):
     try:
         datetime.strptime(date_text, "%Y-%m-%d").date()
