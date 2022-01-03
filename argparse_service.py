@@ -1,11 +1,11 @@
 import argparse
-from buy_service import *
-from sell_service import *
 
 argparser = argparse.ArgumentParser(
     description="Supermarket inventory and sales reporting application"
 )
-argparser.add_argument("function", help="Choose between: buy, sell", action="store")
+argparser.add_argument(
+    "function", help="Choose between:" + "buy, sell", action="store"
+)
 argparser.add_argument(
     "-n", "--name", help="specify the name of a product", action="store"
 )
@@ -25,7 +25,8 @@ argparser.add_argument(
 argparser.add_argument(
     "-c",
     "--current_date",
-    help="specify a date to use as the current date for the program (use format YYYY-MM-DD)",
+    help="specify a date to use as the current date for the program"
+    + "(use format YYYY-MM-DD)",
     action="store",
 )
 argparser.add_argument(

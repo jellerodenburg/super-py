@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+from date_service import str_to_date
 from model import Product, Sale
 from rich.console import Console
 import sys
@@ -37,19 +38,21 @@ def get_products_from_bought_csv():
                 product = Product(
                     row["id"],
                     row["product_name"],
-                    datetime.strptime(row["buy_date"], "%Y-%m-%d").date(),
+                    str_to_date(row["buy_date"]),
                     row["buy_price"],
-                    datetime.strptime(row["expiration_date"], "%Y-%m-%d").date(),
+                    str_to_date(row["expiration_date"]),
                 )
-            except:
+            except Exception:
                 error_console.print(
-                    f"Something seems to be wrong with the bought.csv file on line {count +1}!"
+                    "Unable to complete your request\n"
+                    + "Something seems to be wrong with the bought.csv file:\n"
+                    + f"\terror on line: {count +1}"
+                    + "\nExiting program"
                 )
-                error_console.print("Please check!")
                 sys.exit()
             products.append(product)
     if count == 0:
-        error_console.print(f"NOTE! No bought products found in bought.csv")
+        error_console.print("NOTE! No bought products found in bought.csv")
     return products
 
 

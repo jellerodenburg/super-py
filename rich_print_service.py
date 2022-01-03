@@ -1,12 +1,12 @@
 from rich.console import Console
 from rich.table import Table
 from datetime import datetime
-from currency_service import *
+from currency_service import format_as_currency
 
 console = Console()
 
 
-def print_product_table_format(product):
+def print_product_in_table_format(product):
     table = Table()
 
     table.add_column("Item name: ", justify="right")
