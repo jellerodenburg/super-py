@@ -7,10 +7,13 @@ from csv_service import (
     bought_csv,
 )
 from date_service import get_date_to_use_as_current_date
-from rich_print_service import print_product_in_table_format
+from rich_print_service import (
+    print_product_in_table_format,
+    print_error_panel,
+    print_succes_panel,
+)
 
 console = Console()
-error_console = Console(stderr=True, style="bold red")
 
 current_date = get_date_to_use_as_current_date()
 
@@ -36,23 +39,24 @@ def buy_product(product_name, product_price, product_expiration_date):
                 product_expiration_date,
             )
             print_product_in_table_format(added_product)
-            console.print("Item added succesfully to list of bought products.")
+            print_succes_panel(
+                f"Product '{product_name}' with id {product_id} "
+                + "added succesfully to list of bought products."
+            )
 
 
 def all_args_entered(product_name, product_price, product_expiration_date):
     args_not_none = True
     if product_expiration_date is None:
-        error_console.print(
-            "Error: Please specify the expiration_date for the product"
-        )
+        print_error_panel("Error: expiration date not specified")
         args_not_none = False
     if product_name is None:
-        error_console.print("Error: Please specify the name of the product")
+        print_error_panel("Error: name of the product not specified")
         args_not_none = False
     if product_price is None:
-        error_console.print("Error: Please specify a price for the product")
-        args_not_none is False
-    if product_price < 0:
-        error_console.print("Error: Product price cannot be a negative amount")
+        print_error_panel("Error: price not specified")
+        args_not_none = False
+    if product_price and product_price < 0:
+        print_error_panel("Error: price cannot be a negative amount")
         args_not_none = False
     return args_not_none

@@ -8,8 +8,12 @@ from csv_service import (
 )
 from date_service import get_date_to_use_as_current_date
 from currency_service import format_as_currency
-from rich import print
-from rich_print_service import print_product_in_table_format
+from rich_print_service import (
+    print_product_in_table_format,
+    print_succes_panel,
+    print_error_panel,
+    print_info_panel,
+)
 
 current_date = get_date_to_use_as_current_date()
 bought_products = get_products_from_bought_csv()
@@ -20,15 +24,18 @@ def sell_product_by_name(product_name, sell_price):
     products_available_to_sell = get_products_available_for_sale(product_name)
     product_to_sell = find_product_to_sell_first(products_available_to_sell)
     if product_to_sell is None:
-        print(f"[red]No '{product_name}' items available for sale.[/red]")
+        print_error_panel(f"No '{product_name}' items available for sale.")
     else:
         number_of_same_products_left = len(products_available_to_sell) - 1
         sell_product(product_to_sell, sell_price)
         print_product_in_table_format(product_to_sell)
-        print(f"Sold for {format_as_currency(sell_price)}")
-        print(
-            f"Number of available '{product_name}' items left:",
-            f"{number_of_same_products_left}",
+        print_succes_panel(
+            f"Product with id {product_to_sell.id} "
+            + f"sold for {format_as_currency(sell_price)}"
+        )
+        print_info_panel(
+            f"Number of available '{product_name}' items left: "
+            + f"{number_of_same_products_left}",
         )
 
 

@@ -3,6 +3,7 @@ from datetime import datetime
 from date_service import str_to_date
 from model import Product, Sale
 from rich.console import Console
+from rich_print_service import print_error_panel
 import sys
 
 console = Console()
@@ -43,16 +44,15 @@ def get_products_from_bought_csv():
                     str_to_date(row["expiration_date"]),
                 )
             except Exception:
-                error_console.print(
-                    "Unable to complete your request\n"
-                    + "Something seems to be wrong with the bought.csv file:\n"
-                    + f"\terror on line: {count +1}"
+                print_error_panel(
+                    "Unable to complete your request:\n"
+                    + f"Error in bought.csv on line: {count +1}"
                     + "\nExiting program"
                 )
                 sys.exit()
             products.append(product)
     if count == 0:
-        error_console.print("NOTE! No bought products found in bought.csv")
+        print_error_panel("NOTE! No bought products found in bought.csv")
     return products
 
 

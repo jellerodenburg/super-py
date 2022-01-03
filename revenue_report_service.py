@@ -8,6 +8,7 @@ from revenue_data_service import (
 )
 from date_service import is_valid_date
 from currency_service import format_as_currency
+from rich_print_service import print_error_panel
 
 console = Console()
 table = Table()
@@ -70,12 +71,12 @@ def add_row_to_table(from_date, to_date):
 def both_args_valid(from_date, to_date):
     args_not_none = True
     if from_date is None:
-        Console.print(
+        print_error_panel(
             "[red]Error: Please specify the from_date for the date range[/red]"
         )
         args_not_none = False
     if to_date is None:
-        Console.print(
+        print_error_panel(
             "[red]Error: Please specify the to_date for the date range[/red]"
         )
         args_not_none = False

@@ -1,5 +1,6 @@
 from datetime import date, datetime
 from rich.console import Console
+from rich_print_service import print_error_panel
 
 error_console = Console(stderr=True, style="bold red")
 
@@ -26,8 +27,8 @@ def is_valid_date(date_text):
         datetime.strptime(date_text, "%Y-%m-%d").date()
         return True
     except ValueError:
-        error_console.print(
-            "Error: ", "Please specify a valid date in format YYYY-MM-DD."
+        print_error_panel(
+            "Error: Please specify a valid date in format YYYY-MM-DD."
         )
         return False
 
