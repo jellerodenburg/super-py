@@ -1,6 +1,6 @@
 from datetime import timedelta
 from inventory_data_service import get_inventory
-from rich_print_service import print_inventory_report
+from rich_print_service import print_product_report
 from date_service import (
     get_date_to_use_as_current_date,
     date_to_str,
@@ -17,4 +17,5 @@ def generate_inventory_report(date_arg):
         date_arg = date_to_str(yesterday)
     if is_valid_date(date_arg):
         inventory = get_inventory(date_arg)
-        print_inventory_report(inventory, date_arg)
+        report_title = f"Inventory as of {date_arg}"
+        print_product_report(inventory, report_title)

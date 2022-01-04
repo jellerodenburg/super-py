@@ -26,10 +26,10 @@ def print_product_in_table_format(product):
     console.print(Panel(table))
 
 
-def print_inventory_report(inventory, inventory_date):
+def print_product_report(inventory, table_title):
     current_date = get_date_to_use_as_current_date()
 
-    table = Table(title=f"Product inventory of date: {inventory_date}")
+    table = Table(title=f"{table_title}")
     table.add_column("Id")
     table.add_column("Name")
     table.add_column("Buy Date")
