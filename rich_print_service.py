@@ -26,10 +26,10 @@ def print_product_in_table_format(product):
     console.print(Panel(table))
 
 
-def print_inventory_report(inventory):
+def print_inventory_report(inventory, inventory_date):
     current_date = get_date_to_use_as_current_date()
 
-    table = Table()
+    table = Table(title=f"Product inventory of date: {inventory_date}")
     table.add_column("Id")
     table.add_column("Name")
     table.add_column("Buy Date")
@@ -42,15 +42,17 @@ def print_inventory_report(inventory):
         buy_price = format_as_currency(float(product.buy_price))
         expiration_date = date_to_str(product.expiration_date)
         if product.expiration_date < current_date:
-            expiration_date = f"{expiration_date} [b red]Expired![/b red]"
+            expiration_date = f"[b red]{expiration_date} Expired![/b red]"
         elif product.expiration_date == current_date:
             expiration_date = (
-                f"{expiration_date}[dark_orange]  Today![/dark_orange]"
+                f"[dark_orange]{expiration_date} Today![/dark_orange]"
             )
         elif product.expiration_date == current_date + timedelta(days=1):
-            expiration_date = f"{expiration_date}[gold1] Tomorrow![/gold1]"
+            expiration_date = f"[gold1]{expiration_date} Tomorrow![/gold1]"
         else:
-            expiration_date = date_to_str(product.expiration_date)
+            expiration_date = (
+                f"[green]{date_to_str(product.expiration_date)}[/green]"
+            )
         table.add_row(
             id,
             product.name,
@@ -72,3 +74,7 @@ def print_succes_panel(string):
 
 def print_info_panel(string):
     console.print(Panel(string, style="blue"))
+
+
+def print_warning_panel(string):
+    console.print(Panel(string, style="orange1"))

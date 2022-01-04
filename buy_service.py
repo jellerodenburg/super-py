@@ -1,12 +1,15 @@
 from rich.console import Console
 from model import Product
-from date_service import str_to_date, is_valid_date
+from date_service import (
+    str_to_date,
+    is_valid_date,
+    get_date_to_use_as_current_date,
+)
 from csv_service import (
     get_last_id_from_bought_csv,
     write_data_to_new_row_in_csv_document,
     bought_csv,
 )
-from date_service import get_date_to_use_as_current_date
 from rich_print_service import (
     print_product_in_table_format,
     print_error_panel,
@@ -40,8 +43,9 @@ def buy_product(product_name, product_price, product_expiration_date):
             )
             print_product_in_table_format(added_product)
             print_succes_panel(
-                f"Product '{product_name}' with id {product_id} "
-                + "added succesfully to list of bought products."
+                f"Product '{product_name}' "
+                + f"added with id {product_id} "
+                + "to list of bought products."
             )
 
 

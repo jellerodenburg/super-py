@@ -30,11 +30,11 @@ def sell_product_by_name(product_name, sell_price):
         sell_product(product_to_sell, sell_price)
         print_product_in_table_format(product_to_sell)
         print_succes_panel(
-            f"Product with id {product_to_sell.id} "
-            + f"sold for {format_as_currency(sell_price)}"
+            f"Product '{product_name}' with id {product_to_sell.id} "
+            + f"sold for {format_as_currency(sell_price)} on {current_date}"
         )
         print_info_panel(
-            f"Number of available '{product_name}' items left: "
+            f"Number of available '{product_name}' items left is now: "
             + f"{number_of_same_products_left}",
         )
 

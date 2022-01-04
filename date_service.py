@@ -1,8 +1,10 @@
 from datetime import date, datetime
 from rich.console import Console
-from rich_print_service import print_error_panel
+from rich.panel import Panel
 
+console = Console(style="green")
 error_console = Console(stderr=True, style="bold red")
+today = date.today()
 
 
 def get_date_to_use_as_current_date():
@@ -10,16 +12,28 @@ def get_date_to_use_as_current_date():
     date_as_string = file.read()
     # set date to today's date if current_date.txt is empty
     if date_as_string == "":
-        current_date = date.today()
+        current_date = today
     else:
-        current_date = str_to_date(date_as_string)
+        current_date = datetime.strptime(date_as_string, "%Y-%m-%d").date()
     return current_date
 
 
 def set_current_date(date):
-    if is_valid_date(date):
+    if date == "today" or date == "reset" or date == "local":
         with open("resources/current_date.txt", "w") as file:
-            file.write(date)
+            file.write("")
+        console.print(
+            Panel(
+                "Current date has been reset.\n"
+                + "Local date (of your operating system) will be used.\n"
+                + f"Today is: {today}"
+            )
+        )
+    else:
+        if is_valid_date(date):
+            with open("resources/current_date.txt", "w") as file:
+                file.write(date)
+            console.print(Panel(f"Current date has been set to {date}"))
 
 
 def is_valid_date(date_text):
@@ -27,8 +41,8 @@ def is_valid_date(date_text):
         datetime.strptime(date_text, "%Y-%m-%d").date()
         return True
     except ValueError:
-        print_error_panel(
-            "Error: Please specify a valid date in format YYYY-MM-DD."
+        error_console.print(
+            Panel("Error: Please specify a valid date in format YYYY-MM-DD.")
         )
         return False
 
