@@ -11,7 +11,7 @@ python super.py --help
 # Options
 
 ## Buy
-Adds product you buy from suppliers to your store's inventory.  
+Adds a product you buy from a supplier to your store's inventory.  
 | arg       | description                      | format         |
 | --------- | -------------------------------- | -------------- |
 | -e        | expiration date of the product   | YYYY-MM-DD     |
@@ -19,7 +19,7 @@ Adds product you buy from suppliers to your store's inventory.
 | -p        | price in euros payed to supplier | decimal number |
 
 
-### Example:
+#### Example:
 Buying a banana from a supplier for price € 0.50. The banana has an expiration date of december 31, 2022.
 
 ```
@@ -45,7 +45,7 @@ Adds product you buy from suppliers to your store's inventory.
 | -p        | price in euros payed to supplier | decimal number |
 
 
-### Example:
+#### Example:
 Buying a banana from a supplier for price € 0.50. The banana has an expiration date of december 31, 2022.
 
 ```
