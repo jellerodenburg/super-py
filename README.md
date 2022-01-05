@@ -4,14 +4,15 @@ SuperPy is a Python command line tool for your supermarket business needs.
 
 ### Features summary:
 
-| option    | description                                        |
-| --------- | -------------------------------------------------- |
-| [`buy`](#buy)       | adds a product to the list of bought products      |
-| [`sell`](#sell)      | logs that a product has been sold                  |
-| [`pull`](#pull)      | pulls products by expiration date                  |
-| [`setdate`](#setdate)   | sets the date that the program perceives as today  |
-| [`sales`](#sales)    | generates a sales report with revenue and profit   |
-| [`inventory`](#inventory) | shows the inventory on a particular date           |
+| option                   | description                                       |
+| ------------------------ | ------------------------------------------------- |
+| [`buy`](#buy)            | adds a product to the list of bought products     |
+| [`sell`](#sell)          | logs that a product has been sold                 |
+| [`pull`](#pull)          | pulls products by expiration date                 |
+| [`setdate`](#setdate)    | sets the date that the program perceives as today |
+| [`sales`](#sales)        | generates a sales report with revenue and profit  |
+| [`inventory`](#inventory)| shows the inventory on a particular date          |
+| [`help`](#help)          | shows the argparse (built in) help message        |
 
 # Documentation
 
