@@ -53,7 +53,7 @@ Sells a product with a specific name from your store's inventory to a customer.
 | `-n` | name of the product              | text           |
 | `-p` | price in euros payed by customer | decimal number |
 
-When you use `sell`, the program will try to find available products with the specified name "banana" from the list of bought products. If found, the product that has the earliest expiration date will be selected and logged as sold.
+When you use `sell`, the program will try to find available products with the specified name "banana" from the list of bought products. If found, the product that has the earliest expiration date will be selected and presented to the user.
 - Only products that not have been sold and have an expiration date of today or later will be considered available.
 - If an available product has been found:
     - sale transaction details will be logged to the `sold.csv` file
