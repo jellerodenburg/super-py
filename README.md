@@ -61,9 +61,10 @@ python super.py sell -n banana -p 0.50
 When you use `sell`, the program will try to find available products with the specified name "banana" from the list of bought products. If found, the product that has the earliest expiration date will be selected and logged as sold.
 - Only products that not have been sold and have an expiration date of today or later will be considered available.
 - If an available product has been found:
-    - sale transaction details will be logged in the `sold.csv` file
-    - product and sale transaction details will be showed to the user
-    - the number of available items with the same product name that are now left in inventory will be showed to the user
+    - sale transaction details will be logged to the `sold.csv` file
+    - product and sale transaction details will be showed
+    - the number of available items with the same product name that are now left in inventory will be showed
+
 Output:
 ```
     Product   banana     
@@ -83,9 +84,9 @@ Number of available 'banana' items left is now: 0
 ## setdate
 Sets the date that the program perceives as today. The set date will be used to get and show relevant data in the program.
 
-| arg  | description             | input format   |
-| ---- | ----------------------- | -------------- |
-| `-d` | desired date to be set  | YYYY-MM-DD     |
+| arg  | description    | input format   |
+| ---- | -------------- | -------------- |
+| `-d` | date to be set | YYYY-MM-DD     |
 
 #### Examples:
 Set the date to december 27, 2022:
@@ -100,7 +101,7 @@ python super.py setdate -d local
 ```
 
 ## sales
-Generates a sales report with revenue and profit. User needs to specify a date range.
+Generates a sales report with revenue and profit. Date range needs to be specified.
 
 | arg  | description         | input format  |
 | ---- | ------------------- | ------------- |
@@ -122,8 +123,32 @@ Output:
 
 
 ## help
-Run the file named `super.py` in your terminal with the `--help` argument to see a quick summary and reminder of the arguments you can use.
+Shows the `argparse` module's (built in) help message the with a summary of which arguments can be used.
 
 ```
 python super.py --help
+```
+
+Output:
+```
+usage: super.py [-h] [-n NAME] [-p PRICE] [-e EXPIRATION_DATE] [-d DATE] [-f FROM_DATE] [-t TO_DATE] function
+
+Supermarket inventory and sales reporting application
+
+positional arguments:
+  function              options: buy, sell, pull, sales, setdate, inventory
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  name of a product
+  -p PRICE, --price PRICE
+                        price in euros (note: use decimal point as seperator for cents)
+  -e EXPIRATION_DATE, --expiration_date EXPIRATION_DATE
+                        expiration date of a product (use format YYYY-MM-DD)
+  -d DATE, --date DATE  date to use with functions: inventory, pull, setdate (use format YYYY-MM-
+                        DD)
+  -f FROM_DATE, --from_date FROM_DATE
+                        starting date for a date range (use format YYYY-MM-DD)
+  -t TO_DATE, --to_date TO_DATE
+                        end date (exclusive) for a date range (use format YYYY-MM-DD)
 ```

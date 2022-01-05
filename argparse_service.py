@@ -5,7 +5,7 @@ argparser = argparse.ArgumentParser(
 )
 argparser.add_argument(
     "function",
-    help="Choose between: buy, sell, pull, revenue, setdate, inventory",
+    help="options: buy, sell, pull, sales, setdate, inventory",
     action="store",
 )
 argparser.add_argument(
@@ -40,6 +40,6 @@ argparser.add_argument(
 argparser.add_argument(
     "-t",
     "--to_date",
-    help="end date for a date range (use format YYYY-MM-DD)",
+    help="end date (exclusive) for a date range (use format YYYY-MM-DD)",
     action="store",
 )
