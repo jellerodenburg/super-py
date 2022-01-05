@@ -15,7 +15,7 @@ SuperPy is a Python command line tool for your supermarket business needs.
 
 # Documentation
 
-## `buy`
+## buy
 Add a product you buy from a supplier to your store's inventory.  
 | arg  | description                      | input format         |
 | ---- | -------------------------------- | -------------- |
@@ -153,12 +153,17 @@ Output:
 ## inventory
 Shows a product report of the inventory on a particular date.
 
-| arg  | description               | input format  | alternative input |
-| ---- | ------------------------- | ------------- | ----------------- |
-| `-d` | date to show inventory of | YYYY-MM-DD    | yesterday, today  |
+| arg  | description               | input format  | input alternative       |
+| ---- | ------------------------- | ------------- | ----------------------- |
+| `-d` | date to show inventory of | YYYY-MM-DD    | yesterday, y, today, t  |
 
 Input can be a date (YYYY-MM-DD) or `today` (short: `t`)  or `yesterday` (short: `y`).  
 If no input is given, the inventory of current date will be shown.
+
+In the Expiration Date column, if the expiration date is later than tomorrow, the color will be green. There will be a colored warning if expiration date is:
+ - <span style="color:gold">Tomorrow!</span>
+ - <span style="color:orange">Today!</span>
+ - <span style="color:red">**Expired!**</span>
 
 #### Example:
 Show inventory of today using the short input (`t`)
