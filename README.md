@@ -6,16 +6,16 @@ SuperPy is a Python command line tool for your supermarket business needs.
 
 | option    | description                                        |
 | --------- | -------------------------------------------------- |
-| buy       | adds a product to the list of bought products      |
-| sell      | logs that a product has been sold                  |
-| pull      | pulls products by expiration date                  |
-| setdate   | sets the date that the program perceives as today  |
-| sales     | generates a sales report with revenue and profit   |
-| inventory | shows the inventory on a particular date           |
+| [`buy`](#buy)       | adds a product to the list of bought products      |
+| [`sell`](#sell)      | logs that a product has been sold                  |
+| [`pull`](#pull)      | pulls products by expiration date                  |
+| [`setdate`](#setdate)   | sets the date that the program perceives as today  |
+| [`sales`](#sales)    | generates a sales report with revenue and profit   |
+| [`inventory`](#inventory) | shows the inventory on a particular date           |
 
 # Documentation
 
-## buy
+## `buy`
 Add a product you buy from a supplier to your store's inventory.  
 | arg  | description                      | input format         |
 | ---- | -------------------------------- | -------------- |
@@ -81,6 +81,34 @@ Product 'banana' with id 1 sold for € 0.50 on 2021-12-28
 Number of available 'banana' items left is now: 0
 ```
 
+## pull
+Pulls all products from the inventory of current date that have an expiration date that is ***equal to or earlier than*** the specified date. Pulling will log the concerning products to `sold.csv` with a price of `0`.  
+This feature can be used to quickly identify and 'remove' from inventory all products that should not be for sale anymore. 
+
+| arg  | description                                        | input format   |
+| ---- | -------------------------------------------------- | -------------- |
+| `-d` | date to compare to the expiration date of products |  YYYY-MM-DD    |
+
+
+#### Example:
+Pull all products with an expiration date of 2021-12-31 or earlier.
+
+```
+python super.py pull -d 2021-12-31
+```
+
+Output:  
+
+*Pulled products*
+| Id  | Name | Buy Date | Buy Price | Expiration Date |
+| -: | - | - | -: | - |
+| 1 | banana  | 12021-12-28  |   € 0.30 | 2021-12-31 |
+```
+Number of products pulled: 1
+Total costs for pulled products: € 0.30
+```
+
+
 ## setdate
 Sets the date that the program perceives as today. The set date will be used to get and show relevant data in the program.
 
@@ -120,6 +148,27 @@ Output:
 | From date  | To Date (excl.) | Items sold | Item Sell Price Average | Revenue (Sales) | Total Costs (Buy) | Profit (Revenue - Costs) |
 | - | - | -: | -: |-: | -: | -: |
 | 2021-12-01 | 2022-01-01  | 1  |   € 0.5 | € 0.50 | € 0.30 |  € 0.20 |
+
+
+## inventory
+Shows a product report of the inventory on a particular date.
+
+| arg  | description               | input format  | alternative input |
+| ---- | ------------------------- | ------------- | ----------------- |
+| `-d` | date to show inventory of | YYYY-MM-DD    | yesterday, today  |
+
+Input can be a date (YYYY-MM-DD) or `today` (short: `t`)  or `yesterday` (short: `y`).  
+If no input is given, the inventory of current date will be shown.
+
+#### Example:
+Show inventory of today using the short input (`t`)
+```
+python super.py inventory t
+```
+Output:
+| Id  | Name | Buy Date | Buy Price | Expiration Date |
+| -: | - | - | -: | - |
+| 1 | banana  | 12021-12-28  |   € 0.30 | 2021-12-31 |
 
 
 ## help

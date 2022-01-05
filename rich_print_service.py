@@ -30,11 +30,11 @@ def print_product_report(inventory, table_title):
     current_date = get_date_to_use_as_current_date()
 
     table = Table(title=f"{table_title}")
-    table.add_column("Id")
+    table.add_column("Id", justify="right")
     table.add_column("Name")
     table.add_column("Buy Date")
-    table.add_column("Buy Price")
-    table.add_column("Exp. Date")
+    table.add_column("Buy Price", justify="right")
+    table.add_column("Expiration Date")
 
     for product in inventory:
         id = str(product.id)
