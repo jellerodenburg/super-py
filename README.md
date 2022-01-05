@@ -85,9 +85,9 @@ Number of available 'banana' items left is now: 0
 Pulls all products from the inventory of current date that have an expiration date that is ***equal to or earlier than*** the specified date. Pulling will log the concerning products to `sold.csv` with a price of `0`.  
 This feature can be used to quickly identify and 'remove' from inventory all products that should not be for sale anymore. 
 
-| arg  | description                                        | input format   |
-| ---- | -------------------------------------------------- | -------------- |
-| `-d` | date to compare to the expiration date of products |  YYYY-MM-DD    |
+| arg  | description                                                     | input format   |
+| ---- | --------------------------------------------------------------- | -------------- |
+| `-d` | date to compare to the expiration date of products in inventory |  YYYY-MM-DD    |
 
 
 #### Example:
