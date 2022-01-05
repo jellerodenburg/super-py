@@ -10,7 +10,7 @@ from date_service import get_date_to_use_as_current_date
 from currency_service import format_as_currency
 from rich_print_service import (
     print_product_in_table_format,
-    print_succes_panel,
+    print_success_panel,
     print_error_panel,
     print_info_panel,
 )
@@ -29,7 +29,7 @@ def sell_product_by_name(product_name, sell_price):
         number_of_same_products_left = len(products_available_to_sell) - 1
         sell_product(product_to_sell, sell_price)
         print_product_in_table_format(product_to_sell)
-        print_succes_panel(
+        print_success_panel(
             f"Product '{product_name}' with id {product_to_sell.id} "
             + f"sold for {format_as_currency(sell_price)} on {current_date}"
         )

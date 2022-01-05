@@ -21,7 +21,7 @@ table.add_column("Total\nCosts\n(Buy)", justify="right")
 table.add_column("Profit\n(Revenue - Costs)", justify="right")
 
 
-def generate_revenue_report(from_date, to_date):
+def generate_sales_report(from_date, to_date):
     if both_args_valid(from_date, to_date):
         add_row_to_table(from_date, to_date)
         console.print(table)

@@ -7,7 +7,7 @@ from date_service import (
 from sell_service import sell_product
 from rich_print_service import (
     print_product_report,
-    print_succes_panel,
+    print_success_panel,
     print_warning_panel,
 )
 from rich.console import Console
@@ -32,7 +32,7 @@ def pull_products_with_date_equal_to_or_earlier_then(date_as_string):
     else:
         report_title = "Pulled products"
         print_product_report(pulled_products, report_title)
-        print_succes_panel(
+        print_success_panel(
             f"{len(pulled_products)} products "
             + f"with expiration date {date_as_string} or earlier were pulled",
         )

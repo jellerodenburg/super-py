@@ -4,7 +4,7 @@ from argparse_service import argparser
 from buy_service import buy_product
 from date_service import set_current_date, get_date_to_use_as_current_date
 from pull_service import pull_products_with_date_equal_to_or_earlier_then
-from revenue_report_service import generate_revenue_report
+from sales_report_service import generate_sales_report
 from sell_service import sell_product_by_name
 from inventory_report_service import generate_inventory_report
 from rich_print_service import print_warning_panel
@@ -25,8 +25,8 @@ def main():
         sell_product_by_name(args.name, args.price)
     if args.function == "setdate":
         set_current_date(args.date)
-    if args.function == "revenue":
-        generate_revenue_report(args.from_date, args.to_date)
+    if args.function == "sales":
+        generate_sales_report(args.from_date, args.to_date)
     if args.function == "inventory":
         generate_inventory_report(args.date)
     if args.function == "pull":
@@ -38,6 +38,6 @@ if __name__ == "__main__":
     current_date = get_date_to_use_as_current_date()
     if current_date != date.today():
         print_warning_panel(
-            f"NOTE! Current 'today'-date for super.py is set to: "
+            "NOTE! Current 'today'-date for super.py is set to: "
             + f"[bold]{current_date}[/bold]"
         )

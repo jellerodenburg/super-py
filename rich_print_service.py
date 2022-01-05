@@ -68,7 +68,7 @@ def print_error_panel(string):
     error_console.print(Panel(string))
 
 
-def print_succes_panel(string):
+def print_success_panel(string):
     console.print(Panel(string, style="green"))
 
 

@@ -13,7 +13,7 @@ from csv_service import (
 from rich_print_service import (
     print_product_in_table_format,
     print_error_panel,
-    print_succes_panel,
+    print_success_panel,
 )
 
 console = Console()
@@ -42,7 +42,7 @@ def buy_product(product_name, product_price, product_expiration_date):
                 product_expiration_date,
             )
             print_product_in_table_format(added_product)
-            print_succes_panel(
+            print_success_panel(
                 f"Product '{product_name}' "
                 + f"added with id {product_id} "
                 + "to list of bought products."
