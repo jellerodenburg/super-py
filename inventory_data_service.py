@@ -1,10 +1,5 @@
 from csv_service import get_products_from_bought_csv, get_sales_from_sold_csv
-from date_service import (
-    date_to_str,
-    str_to_date,
-    is_valid_date,
-    get_date_to_use_as_current_date,
-)
+from date_service import str_to_date, is_valid_date
 
 
 def get_inventory(date_arg):
