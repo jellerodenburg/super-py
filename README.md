@@ -17,7 +17,7 @@ SuperPy is a Python command line tool for your supermarket business needs.
 # Documentation
 
 ## buy
-Add a product you buy from a supplier to your store's inventory.  
+Adds a product you buy from a supplier to your store's inventory.  
 | arg  | description                      | input format         |
 | ---- | -------------------------------- | -------------- |
 | `-e` | expiration date of the product   | YYYY-MM-DD     |
@@ -51,20 +51,19 @@ Sells a product with a specific name from your store's inventory to a customer.
 | `-n` | name of the product              | text           |
 | `-p` | price in euros payed by customer | decimal number |
 
-
-#### Example:
-Selling a banana to a customer for price € 0.50.
-
-```
-python super.py sell -n banana -p 0.50
-```
-
 When you use `sell`, the program will try to find available products with the specified name "banana" from the list of bought products. If found, the product that has the earliest expiration date will be selected and logged as sold.
 - Only products that not have been sold and have an expiration date of today or later will be considered available.
 - If an available product has been found:
     - sale transaction details will be logged to the `sold.csv` file
     - product and sale transaction details will be showed
     - the number of available items with the same product name that are now left in inventory will be showed
+
+#### Example:
+Selling a banana to a customer for price € 0.50:
+
+```
+python super.py sell -n banana -p 0.50
+```
 
 Output:
 ```
