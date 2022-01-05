@@ -51,8 +51,6 @@ def get_products_from_bought_csv():
                 )
                 sys.exit()
             products.append(product)
-    if count == 0:
-        print_error_panel("NOTE! No bought products found in bought.csv")
     return products
 
 

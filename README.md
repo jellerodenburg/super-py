@@ -153,14 +153,15 @@ Output:
 ## inventory
 Shows a product report of the inventory on a particular date.
 
-| arg  | description               | input format  | input alternative       |
-| ---- | ------------------------- | ------------- | ----------------------- |
-| `-d` | date to show inventory of | YYYY-MM-DD    | yesterday, y, today, t  |
+| arg  | description               | input format  | input alternative      |
+| ---- | ------------------------- | ------------- | ---------------------- |
+| `-d` | date to show inventory of | YYYY-MM-DD    | today, t, yesterday, y |
 
 Input can be a date (YYYY-MM-DD) or `today` (short: `t`)  or `yesterday` (short: `y`).  
 If no input is given, the inventory of current date will be shown.
 
-In the Expiration Date column, if the expiration date is later than tomorrow, the color will be green. There will be a colored warning if expiration date is:
+In the Expiration Date column, if the expiration date is later than tomorrow, the color will be green.  
+There will be a colored warning if expiration date is:
  - <span style="color:gold">Tomorrow!</span> *(yellow)*
  - <span style="color:orange">Today!</span> *(orange)*
  - <span style="color:red">**Expired!**</span> *(red)*
@@ -190,7 +191,7 @@ usage: super.py [-h] [-n NAME] [-p PRICE] [-e EXPIRATION_DATE] [-d DATE] [-f FRO
 super.py is a supermarket inventory and sales reporting application
 
 positional arguments:
-  function              options: buy, sell, pull, sales, setdate, inventory
+  function              options: buy, sell, pull, inventory, sales, setdate
 
 optional arguments:
   -h, --help            show this help message and exit
