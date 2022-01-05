@@ -32,7 +32,7 @@ Buying a banana from a supplier for price € 0.30. The banana has an expiration
 python super.py buy -n banana -p 0.30 -e 2021-12-31
 ```
 This will add the banana to the file that contains the details of all bought products for your store.  
-Note: The 'buy date' will be automatically set to the program's 'current date', which should normally be today's date. See documentation on `setdate`.
+Note: The 'buy date' will be automatically set to the program's 'current date', which should normally be today's date. See documentation on [`setdate`](#setdate) .
 
 ```
     Product   banana     
@@ -91,7 +91,7 @@ This feature can be used to quickly identify and 'remove' from inventory all pro
 
 
 #### Example:
-Pull all products with an expiration date of 2021-12-31 or earlier.
+Pull all products with an expiration date of 2021-12-31 or earlier:
 
 ```
 python super.py pull -d 2021-12-31
@@ -167,7 +167,7 @@ There will be a colored warning if expiration date is:
  - <span style="color:red">**Expired!**</span> *(red)*
 
 #### Example:
-Show inventory of today using the short input (`t`)
+Show inventory of today using the short input (`t`):
 ```
 python super.py inventory t
 ```
@@ -179,7 +179,7 @@ Output:
 
 ## help
 Shows the `argparse` module's (built in) help message the with a summary of which arguments can be used.
-
+#### Example:
 ```
 python super.py --help
 ```
