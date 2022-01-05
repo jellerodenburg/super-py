@@ -36,11 +36,11 @@ Note: The 'buy date' will be automatically set to the program's 'current date', 
 ```
     Product   banana     
 ─────────────────────────
-        id:   1         
+        id:   1          
   buy date:   2021-12-28 
- buy price:   € 0.30    
- exp. date:   2021-12-31    
-  ```
+ buy price:   € 0.30     
+ exp. date:   2021-12-31 
+```
 
 ## sell
 Sells a product with a specific name from your store's inventory to a customer.
@@ -64,7 +64,15 @@ When you use `sell`, the program will try to find available products with the sp
     - sale transaction details will be logged in the `sold.csv` file
     - product and sale transaction details will be showed to the user
     - the number of available items with the same product name that are now left in inventory will be showed to the user
-
+Output:
+```
+    Product   banana     
+─────────────────────────
+        id:   1          
+  buy date:   2021-12-28 
+ buy price:   € 0.30     
+ exp. date:   2021-12-31 
+```
 ```
 Product 'banana' with id 1 sold for € 0.50 on 2021-12-28
 ```
@@ -107,7 +115,7 @@ Show the sales report for the month December of 2021.
 python super.py sales -f 2021-12-01 -t 2022-01-01
 ```
 
-Result:
+Output:
 | From date  | To Date (excl.) | Items sold | Item Sell Price Average | Revenue (Sales) | Total Costs (Buy) | Profit (Revenue - Costs) |
 | - | - | -: | -: |-: | -: | -: |
 | 2021-12-01 | 2022-01-01  | 1  |   € 0.5 | € 0.50 | € 0.30 |  € 0.20 |
