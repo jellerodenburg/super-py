@@ -133,7 +133,7 @@ Output:
 ```
 usage: super.py [-h] [-n NAME] [-p PRICE] [-e EXPIRATION_DATE] [-d DATE] [-f FROM_DATE] [-t TO_DATE] function
 
-Supermarket inventory and sales reporting application
+super.py is a supermarket inventory and sales reporting application
 
 positional arguments:
   function              options: buy, sell, pull, sales, setdate, inventory

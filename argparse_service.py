@@ -1,7 +1,7 @@
 import argparse
 
 argparser = argparse.ArgumentParser(
-    description="Supermarket inventory and sales reporting application"
+    description="super.py is a supermarket inventory and sales reporting application"
 )
 argparser.add_argument(
     "function",
