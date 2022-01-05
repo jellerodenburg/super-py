@@ -1,5 +1,4 @@
 from csv_service import get_products_from_bought_csv, get_sales_from_sold_csv
-from datetime import date
 from date_service import (
     date_to_str,
     str_to_date,
