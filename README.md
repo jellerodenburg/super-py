@@ -136,8 +136,9 @@ Shows a product report of the inventory on a particular date.
 Input can be a date (YYYY-MM-DD) or `today` (short: `t`)  or `yesterday` (short: `y`).  
 If no input is given, the inventory of current date will be shown.
 
-In the Expiration Date column, if the expiration date is later than tomorrow, the color will be green.  
-There will be a colored warning if expiration date is:
+Note about the Expiration Date column:  
+If the expiration date is later than tomorrow, the color will be green.  
+There will be a colored warning if the expiration date is:
  - <span style="color:gold">Tomorrow!</span> *(yellow)*
  - <span style="color:orange">Today!</span> *(orange)*
  - <span style="color:red">**Expired!**</span> *(red)*
