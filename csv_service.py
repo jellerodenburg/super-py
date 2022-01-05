@@ -71,12 +71,17 @@ def get_last_id_from_csv(file_path):
             try:
                 last_id = int(first_value_of_last_row)
             except Exception:
-                print_error_panel(
-                    f"Unable to determine last id in file: {file_path}\n"
-                    + "Please check if the contents of the last line are valid\n"
-                    + "Please check that there is (only) one blank line at the end of the file"
-                    + "\nExiting program"
-                )
+                print_last_id_error_panel(file_path)
                 sys.exit()
 
     return last_id
+
+
+def print_last_id_error_panel(file_path):
+    print_error_panel(
+        f"Unable to determine last id in file: {file_path}\n"
+        + "Please check:\n"
+        + "- if the contents of the last line are valid\n"
+        + "- that there is (only) one blank line at the end of the file"
+        + "\nExiting program"
+    )

@@ -43,6 +43,6 @@ def pull_products_with_date_equal_to_or_earlier_then(date_as_string):
         print_product_report(pulled_products, report_title)
         print_success_panel(
             f"Number of products pulled: {len(pulled_products)}\n"
-            + f"Total costs for pulled products: "
+            + "Total costs for pulled products: "
             + f"{format_as_currency(pulled_products_buy_price_total)}"
         )
