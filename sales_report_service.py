@@ -13,7 +13,7 @@ from rich_print_service import print_error_panel
 console = Console()
 table = Table()
 table.add_column("From\nDate")
-table.add_column("To\nDate")
+table.add_column("To\nDate\n(excl.)")
 table.add_column("Items\nSold", justify="right")
 table.add_column("Item\nSell Price\nAverage", justify="right")
 table.add_column("Revenue\n(Sales)", justify="right")
