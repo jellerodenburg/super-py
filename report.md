@@ -31,7 +31,7 @@ I have designed the pull feature to show as output:
 - The setdate command has been used to set the date to 2022-01-01 for demonstration purposes.
 - The *NOTE! ...* message will be displayed if the current date is set to a date other than the local operating system date.
 
-You can try these commands consecutively to see what the program does:
+Try these commands consecutively for a demo of what the program can do:
 ```
 python super.py inventory -d today
 ```
