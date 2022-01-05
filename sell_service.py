@@ -1,6 +1,6 @@
 from operator import attrgetter
 from csv_service import (
-    get_last_id_from_sold_csv,
+    get_last_id_from_csv,
     get_products_from_bought_csv,
     get_sales_from_sold_csv,
     write_data_to_new_row_in_csv_document,
@@ -40,7 +40,7 @@ def sell_product_by_name(product_name, sell_price):
 
 
 def sell_product(product, price):
-    new_sale_id = get_last_id_from_sold_csv() + 1
+    new_sale_id = get_last_id_from_csv(sold_csv) + 1
     sell_data = [new_sale_id, product.id, current_date, price]
     write_data_to_new_row_in_csv_document(sell_data, sold_csv)
 

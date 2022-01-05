@@ -6,7 +6,7 @@ from date_service import (
     get_date_to_use_as_current_date,
 )
 from csv_service import (
-    get_last_id_from_bought_csv,
+    get_last_id_from_csv,
     write_data_to_new_row_in_csv_document,
     bought_csv,
 )
@@ -25,7 +25,7 @@ def buy_product(product_name, product_price, product_expiration_date):
     if all_args_entered(product_name, product_price, product_expiration_date):
         if is_valid_date(product_expiration_date):
             product_expiration_date = str_to_date(product_expiration_date)
-            product_id = get_last_id_from_bought_csv() + 1
+            product_id = get_last_id_from_csv(bought_csv) + 1
             product_data = [
                 product_id,
                 product_name,

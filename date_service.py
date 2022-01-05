@@ -24,8 +24,8 @@ def set_current_date(date):
             file.write("")
         console.print(
             Panel(
-                "Current date has been reset.\n"
-                + "Local date (of your operating system) will be used.\n"
+                "Current 'today'-date has been reset.\n"
+                + "Local(operating system) date will be used from now on.\n"
                 + f"Today is: {today}"
             )
         )
@@ -33,7 +33,12 @@ def set_current_date(date):
         if is_valid_date(date):
             with open("resources/current_date.txt", "w") as file:
                 file.write(date)
-            console.print(Panel(f"Current date has been set to {date}"))
+            console.print(
+                Panel(
+                    f"Current date has been set to: {date}\n"
+                    + "This will be used as 'today'-date for the program."
+                )
+            )
 
 
 def is_valid_date(date_text):

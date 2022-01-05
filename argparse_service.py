@@ -33,7 +33,7 @@ argparser.add_argument(
 argparser.add_argument(
     "-p",
     "--price",
-    help="price in euros (note: use decimal point as seperator for cents)",
+    help="price in euros (note: use decimal point as separator for cents)",
     action="store",
     type=float,
 )

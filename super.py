@@ -34,10 +34,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
     current_date = get_date_to_use_as_current_date()
     if current_date != date.today():
         print_warning_panel(
             "NOTE! Current 'today'-date for super.py is set to: "
-            + f"[bold]{current_date}[/bold]"
+            + f"[b]{current_date}[/b]\n"
+            + "Current date can be (re)set to local operating system date"
+            + " with command: [i b]setdate -d local[/i b]"
         )
+    main()

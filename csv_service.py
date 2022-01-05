@@ -61,23 +61,22 @@ def write_data_to_new_row_in_csv_document(data, document_path):
         file.close()
 
 
-def get_last_id_from_bought_csv():
-    with open("resources/bought.csv", "r", encoding="UTF8") as file:
+def get_last_id_from_csv(file_path):
+    with open(file_path, "r", encoding="UTF8") as file:
         opened_file = file.readlines()
         first_value_of_last_row = opened_file[-1].split(",")[0]
         if first_value_of_last_row == "id":
             last_id = 0
         else:
-            last_id = int(first_value_of_last_row)
-    return last_id
+            try:
+                last_id = int(first_value_of_last_row)
+            except Exception:
+                print_error_panel(
+                    f"Unable to determine last id in file: {file_path}\n"
+                    + "Please check if the contents of the last line are valid\n"
+                    + "Please check that there is (only) one blank line at the end of the file"
+                    + "\nExiting program"
+                )
+                sys.exit()
 
-
-def get_last_id_from_sold_csv():
-    with open("resources/sold.csv", "r", encoding="UTF8") as file:
-        opened_file = file.readlines()
-        first_value_of_last_row = opened_file[-1].split(",")[0]
-        if first_value_of_last_row == "id":
-            last_id = 0
-        else:
-            last_id = int(first_value_of_last_row)
     return last_id
