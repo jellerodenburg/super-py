@@ -15,8 +15,6 @@ __human_name__ = "superpy"
 
 
 # Your code below this line.
-
-
 def main():
     args = argparser.parse_args()
     if args.function == "buy":

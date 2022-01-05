@@ -19,6 +19,7 @@ def print_product_in_table_format(product):
     buy_date = date_to_str(product.buy_date)
     buy_price = format_as_currency(float(product.buy_price))
     expiration_date = date_to_str(product.expiration_date)
+
     table.add_row("id:", id)
     table.add_row("buy date:", buy_date)
     table.add_row("buy price:", buy_price)
@@ -41,27 +42,34 @@ def print_product_report(inventory, table_title):
         buy_date = date_to_str(product.buy_date)
         buy_price = format_as_currency(float(product.buy_price))
         expiration_date = date_to_str(product.expiration_date)
-        if product.expiration_date < current_date:
-            expiration_date = f"[b red]{expiration_date} Expired![/b red]"
-        elif product.expiration_date == current_date:
-            expiration_date = (
-                f"[dark_orange]{expiration_date} Today![/dark_orange]"
-            )
-        elif product.expiration_date == current_date + timedelta(days=1):
-            expiration_date = f"[gold1]{expiration_date} Tomorrow![/gold1]"
-        else:
-            expiration_date = (
-                f"[green]{date_to_str(product.expiration_date)}[/green]"
-            )
+        styled_expiration_date = style_expiration_date(
+            current_date, product, expiration_date
+        )
         table.add_row(
             id,
             product.name,
             buy_date,
             buy_price,
-            expiration_date,
+            styled_expiration_date,
         )
 
     console.print(Panel.fit(table))
+
+
+def style_expiration_date(current_date, product, expiration_date):
+    if product.expiration_date < current_date:
+        expiration_date = f"[b red]{expiration_date} Expired![/b red]"
+    elif product.expiration_date == current_date:
+        expiration_date = (
+            f"[dark_orange]{expiration_date} Today![/dark_orange]"
+        )
+    elif product.expiration_date == current_date + timedelta(days=1):
+        expiration_date = f"[gold1]{expiration_date} Tomorrow![/gold1]"
+    else:
+        expiration_date = (
+            f"[green]{date_to_str(product.expiration_date)}[/green]"
+        )
+    return expiration_date
 
 
 def print_error_panel(string):

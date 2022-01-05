@@ -24,12 +24,12 @@ def pull_products_with_date_equal_to_or_earlier_then(date_as_string):
     pulled_products = []
     pulled_products_buy_price_total = 0.0
     print_info_panel(
-        f"Searching inventory of {current_date_string} "
-        + f"for products with expiration date of {date_as_string} or earlier ..."
+        f"Searching inventory of {current_date_string} for products"
+        + f" with expiration date of {date_as_string} or earlier ..."
     )
     for product in inventory:
         if product.expiration_date <= date:
-            # puts products in sold.csv with sell_price of 0
+            # put products in sold.csv with sell_price of 0
             sell_product(product, 0)
             pulled_products.append(product)
             pulled_products_buy_price_total += float(product.buy_price)
