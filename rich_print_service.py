@@ -63,11 +63,9 @@ def style_expiration_date(current_date, product, expiration_date):
     if product.expiration_date < current_date:
         expiration_date = f"[b red]{expiration_date} Expired![/b red]"
     elif product.expiration_date == current_date:
-        expiration_date = (
-            f"[dark_orange]{expiration_date} Today![/dark_orange]"
-        )
+        expiration_date = f"[orange3]{expiration_date} Today![/orange3]"
     elif product.expiration_date == current_date + timedelta(days=1):
-        expiration_date = f"[gold1]{expiration_date} Tomorrow![/gold1]"
+        expiration_date = f"[gold3]{expiration_date} Tomorrow![/gold3]"
     else:
         expiration_date = (
             f"[green]{date_to_str(product.expiration_date)}[/green]"
@@ -88,7 +86,7 @@ def print_info_panel(string):
 
 
 def print_warning_panel(string):
-    console.print(Panel(string, style="orange1"))
+    console.print(Panel(string, style="orange3"))
 
 
 def print_setdate_warning_panel(current_date):
