@@ -4,7 +4,7 @@ SuperPy is a Python command line tool for your supermarket business needs.
 
 ### Dependencies:
 SuperPy uses the 'Rich' Python library.  
-See [Rich installation instructions](https://rich.readthedocs.io/en/stable/introduction.html) for system requirements and how to install Rich.
+See [Rich installation instructions](https://rich.readthedocs.io/en/stable/introduction.html) for system requirements and how to install Rich.  
 SuperPy was developed and tested with Rich version 10.16.2 (latest stable version as of January 2022).
 
 ### Features summary:
