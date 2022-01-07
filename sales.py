@@ -55,7 +55,7 @@ def optional_add_more_date_ranges():
     add_more = True
     while add_more is True:
         print_prompt_panel(
-            "Add results for another date range ton sales report?"
+            "Add results for another date range to sales report?"
         )
         add_more = Confirm.ask()
         if add_more:
