@@ -16,3 +16,4 @@ id,product_name,buy_date,buy_price,expiration_date
 15,bread,2022-01-01,0.89,2022-01-02
 16,apple,2022-01-01,0.3,2022-01-15
 17,apple,2022-01-01,0.3,2022-01-15
+18,apple,2022-01-01,0.3,2022-01-15

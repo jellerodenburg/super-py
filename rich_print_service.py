@@ -2,8 +2,11 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 from rich import box
-from currency_service import format_as_currency
-from date_service import date_to_str, get_date_to_use_as_current_date
+from helpers import (
+    date_to_str,
+    get_date_to_use_as_current_date,
+    format_as_currency,
+)
 from datetime import timedelta
 
 console = Console()
@@ -86,3 +89,12 @@ def print_info_panel(string):
 
 def print_warning_panel(string):
     console.print(Panel(string, style="orange1"))
+
+
+def print_setdate_warning_panel(current_date):
+    print_warning_panel(
+        "NOTE! Current 'today'-date for super.py is set to: "
+        + f"[b]{current_date}[/b]\n"
+        + "Current date can be (re)set to local operating system date"
+        + " with command: [i b]setdate -d local[/i b]"
+    )
