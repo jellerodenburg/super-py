@@ -85,6 +85,10 @@ def print_info_panel(string):
     console.print(Panel(string, style="blue"))
 
 
+def print_prompt_panel(string):
+    console.print(Panel(string, style="bright_magenta"))
+
+
 def print_warning_panel(string):
     console.print(Panel(string, style="orange3"))
 
